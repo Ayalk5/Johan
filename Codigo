@@ -1,0 +1,305 @@
+#include<stdio.h>
+#include<conio.h>
+#include<iostream>
+#include<stdlib.h>
+#include<windows.h>
+#include<dos.h>
+#include<time.h>
+#include<string.h>
+
+using namespace std;
+
+void campeon();
+void encabezado();
+void m_b();
+void datos();
+void intr();
+void licencias();
+void Dal101();
+void elecc_lic();
+void Ti_Pro1();
+void elecc_dal101();
+void Ti_Pro1();
+void Ti_Pro2();
+void men_art();
+void mensajes();
+void ticket();
+
+main()
+{
+	campeon();
+	getch();
+}
+
+char buffer[9],no_cl[100], sn[2];
+
+int nc=1, np, i, lic, tp[30], nop[30], cp[30], top[30];
+float tac, cr, cam;
+
+void campeon()
+{
+	do
+	{  
+	if(nc>1)
+	{
+	cout<<endl;
+    system("pause");
+    system("cls");
+	}
+	tac=0;
+	encabezado();
+	m_b();
+	encabezado();
+	datos();
+	encabezado();
+	cout<<"| Bienvenid@ "<<no_cl<<" |"<<endl;
+	cout<<endl;
+	intr();
+	for(i=1; i<=np; i++)
+	{
+		encabezado();
+		licencias();
+		encabezado();
+		elecc_lic();
+		encabezado();
+		elecc_dal101();
+		encabezado();
+		men_art();
+		mensajes();
+		system("pause");
+	    system("cls");
+    }
+    encabezado();
+    ticket();
+    nc=nc+1;
+    cout<<" | Agregar otro cliente? : ";
+    cin>>sn;
+    strupr(sn);
+	}
+    while((strcmp(sn,"SI")==0));
+    
+}
+
+void encabezado()
+{
+	cout<<"|| Pop! Shop 2.0: Un Mundo de Vinyl ||"<<endl;
+    cout<<"-->  Fecha y Hora Actual: ";
+    time_t   t,i;
+	char *p;
+
+	i = time (&t);
+	p = ctime (&i);  /* igual a: p = ctime (&t); */
+	printf ("%s",p);
+	cout<<"-->  Numero del Cliente Actual: #"<<nc<<endl;
+	cout<<"-->  Total Acumulado: $"<<tac<<endl;   
+	cout<<endl;
+}
+
+void m_b()
+{
+	cout<<" --------------------------------------------------------------------------------------"<<endl;
+	cout<<" | Bienvenido a Pop! Shop 2.0: Un Mundo de Vinyl, donde encontraras una gran variedad |"<<endl;
+	cout<<" | de productos referentes a los coleccionables Pop! que fabrica y comercializa Funko |"<<endl;
+	cout<<" --------------------------------------------------------------------------------------"<<endl;
+	cout<<endl;
+	cout<<" ------------------------------------------------------------------------------"<<endl;
+	cout<<" | Este es un programa el cual te va a ir guiando con el fin de que registres |"<<endl;
+	cout<<" |          cada producto Pop! que hayas adquirido en la tienda               |"<<endl;
+    cout<<" ------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    system("pause");
+	system("cls");
+}
+
+void datos()
+{
+	cout<<" -----------------------------------------------------------------"<<endl;
+	cout<<" | Para empezar, solicitamos que ingreses los siguientes datos : |"<<endl;
+    cout<<" -----------------------------------------------------------------"<<endl;
+    cout<<endl;
+    cin.ignore();
+    cout<<" Tu Nombre Completo: ";
+    cin.getline(no_cl,100); 
+    cout<<" Numero de Productos Adquiridos: ";
+    cin>>np;
+    cout<<endl;
+    system("pause");
+    system("cls");
+}
+
+void intr()
+{
+	cout<<" --------------------------------------------------------------------------------"<<endl;
+	cout<<" |   A continuacion se te iran pidiendo algunos datos correspondientes a los    |"<<endl;
+    cout<<" | diferentes productos que has adquirido, con el fin de sacar el total a pagar |"<<endl;	
+    cout<<" --------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    system("pause");
+    system("cls");
+}
+
+void licencias()
+{
+	cout<<" --------------------------------------------------------------"<<endl;
+	cout<<" | Lista de licencias disponibles (ordenadas alfabeticamente) |"<<endl;
+	cout<<" --------------------------------------------------------------"<<endl;
+	cout<<endl;
+	cout<<" ---> #"<<endl;
+	cout<<" -------------------------"<<endl;
+	cout<<" | 1. 101 Dalmatians (2) |"<<endl;
+	cout<<" -------------------------"<<endl;
+	cout<<endl;
+	cout<<" Ingresa la licencia correspondiente al producto #"<<i<<": ";
+	cin>>lic;
+	cout<<endl;
+	system("pause");
+	system("cls");
+}
+
+void elecc_lic()
+{
+	switch(lic)
+	{
+		case 1:
+			Dal101();
+			break;
+	}
+}
+
+void Dal101()
+{
+	cout<<" --------------------------------------------------------------------"<<endl;
+	cout<<" | Tipos de productos disponibles correspondientes a 101 DALMATIANS |"<<endl;
+	cout<<" --------------------------------------------------------------------"<<endl;
+	cout<<endl;
+	cout<<" ---> 1. Pop! Keychain (1)"<<endl;
+	cout<<" ---> 2. Pop! Vinyl (1)"<<endl;
+	cout<<endl;
+	cout<<" Ingrese el tipo de producto correspondiente al producto #"<<i<<": ";
+	cin>>tp[0];
+	cout<<endl;
+	system("pause");
+	system("cls");
+}
+
+void elecc_dal101()
+{
+	switch(tp[0])
+	{
+		case 1:
+		    Ti_Pro1();
+		    break;
+		case 2:
+			Ti_Pro2();
+			break;
+	}
+}
+
+void Ti_Pro1()
+{
+	cout<<" ----------------------------------------------------------"<<endl;
+	cout<<" | Productos disponibles correspondientes a Pop! Keychain |"<<endl;
+	cout<<" ----------------------------------------------------------"<<endl;
+	cout<<endl;
+	cout<<" ---> 1. 2 Pack - Pongo & Perdita: $250.00"<<endl;
+	cout<<endl;
+	cout<<" Ingrese el nombre del producto correspondiente al producto #"<<i<<": ";
+	cin>>nop[0];
+	cout<<" Cantidad de articulos adquiridos del producto #"<<i<<": ";
+	cin>>cp[0];
+	cout<<endl;
+	system("pause");
+	system("cls");
+	
+}
+
+void Ti_Pro2()
+{
+	cout<<" -------------------------------------------------------"<<endl;
+	cout<<" | Productos disponibles correspondientes a Pop! Vinyl |"<<endl;
+	cout<<" -------------------------------------------------------"<<endl;
+	cout<<endl;
+	cout<<" ---> 1. 2 Pack - Pongo & Perdit: $600.00"<<endl;
+	cout<<endl;
+	cout<<" Ingrese el nombre del producto correspondiente al producto #"<<i<<": ";
+	cin>>nop[1];
+	cout<<" Cantidad de articulos adquiridos del producto #"<<i<<": ";
+	cin>>cp[1];
+	cout<<endl;
+	system("pause");
+	system("cls");
+}
+
+void men_art()
+{
+	cout<<" --------------------------------------------------------------------------"<<endl;
+	cout<<" | A continuacion se muestran los datos generales del producto registrado |"<<endl;
+	cout<<" --------------------------------------------------------------------------"<<endl;
+}
+
+
+void mensajes()
+{
+	if(nop[0]==1)
+	{
+		top[0]=250*cp[0];
+		cout<<""<<endl;
+		cout<<" | Numero del producto: "<<i<<endl;
+		cout<<" | Categoria: Disney"<<endl;
+		cout<<" | Licencia: 101 Dalmatians "<<endl;
+		cout<<" | Tipo de Producto: Pop! Keychain"<<endl;
+		cout<<" | Producto: 2 Pack - Pongo & Perdit: $250.00"<<endl;
+		cout<<" | Cantidad: "<<cp[0]<<endl;
+		cout<<" | Total: $"<<top[0]<<endl;
+		tac=tac+top[0];
+		cout<<endl;
+	}
+	if(nop[1]==1)
+	{
+		top[1]=600*cp[1];
+		cout<<""<<endl;
+		cout<<" | Numero del producto: "<<i<<endl;
+		cout<<" | Categoria: Disney"<<endl;
+		cout<<" | Licencia: 101 Dalmatians "<<endl;
+		cout<<" | Tipo de Producto: Pop! Vinyl"<<endl;
+		cout<<" | Producto: 2 Pack - Pongo & Perdit: $600.00"<<endl;
+		cout<<" | Cantidad: "<<cp[1]<<endl;
+		cout<<" | Total: $"<<top[1]<<endl;
+		tac=tac+top[1];
+		cout<<endl;
+	}
+	nop[0]=0;
+	nop[1]=0;
+}
+
+void ticket()
+{
+	cout<<" --------------------"<<endl;
+	cout<<" | Ticket de Compra |"<<endl;
+	cout<<" --------------------"<<endl;
+	cout<<endl;
+	cout<<" | Nombre del cliente: "<<no_cl<<endl;
+	cout<<" | Numero del cliente: "<<nc<<endl;
+	cout<<" | Fecha y Hora de la Compra: ";
+	time_t   t,i;
+	char *p;
+	i = time (&t);
+	p = ctime (&i);  /* igual a: p = ctime (&t); */
+	printf ("%s",p);
+	cout<<endl;
+	if(cp[0]>0)
+	cout<<" | 2 Pack - Pongo & Perdit (Pop! Keychain) ["<<cp[0]<<"]: $"<<top[0]<<endl;
+	if(cp[1]>0)
+	cout<<" | 2 Pack - Pongo & Perdit (Pop! Vinyl) ["<<cp[1]<<"]: $"<<top[1]<<endl;
+	cout<<endl;
+	cout<<" | Total: $"<<tac<<endl;
+	cout<<" | Cantidad Recibida: -$";
+	cin>>cr;
+	cam=cr-tac;
+	cout<<" | Cambio: $"<<cam<<endl;
+	cout<<endl;
+	cout<<" Gracias por su Compra !!!"<<endl;
+	cout<<endl;
+	system("pause");
+	system("cls");
+}
